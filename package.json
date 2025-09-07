@@ -7,8 +7,8 @@
     "scripts": {
         "dev:react": "vite",
         "build:react": "vite build",
-        "dev:electron": "electron .",
-        "build:electron": "npx copyfiles -u 1 src/electron/**/* dist-electron",
+        "dev:electron": "cross-env NODE_ENV=development electron .",
+        "build:electron": "npx copyfiles -u 2 src/electron/**/* dist-electron",
         "build": "npm run build:react && npm run build:electron",
         "dist:mac": "npm run build && electron-builder --mac --arm64",
         "dist:win": "npm run build && electron-builder --win --x64",
@@ -17,14 +17,17 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@tailwindcss/vite": "^4.1.13",
         "react": "^19.1.1",
-        "react-dom": "^19.1.1"
+        "react-dom": "^19.1.1",
+        "tailwindcss": "^4.1.13"
     },
     "devDependencies": {
         "@eslint/js": "^9.33.0",
         "@types/react": "^19.1.10",
         "@types/react-dom": "^19.1.7",
         "@vitejs/plugin-react": "^5.0.0",
+        "cross-env": "^10.0.0",
         "electron": "^38.0.0",
         "electron-builder": "^26.0.12",
         "eslint": "^9.33.0",

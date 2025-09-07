@@ -1,26 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
-        <>
-            <div>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-        </>
+        <div className="w-screen h-screen">
+            <video
+                src="https://ik.imagekit.io/di92mtawu/sample-video.mp4?updatedAt=1757238087416"
+                autoPlay
+                muted
+                playsInline
+                loop
+                onCanPlay={(e) => e.target.play()}
+                className="w-screen h-screen object-cover"
+                controls
+            />
+        </div>
     );
 }
 

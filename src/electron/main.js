@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from "electron";
 import path from "path";
+import { isDev } from "./util.js";
 
 // Create the browser window.
 const createWindow = () => {
@@ -8,10 +9,14 @@ const createWindow = () => {
         height: 600,
     });
 
-    // path.join() digunakan untuk memastikan path dapat berjalan di windows, mac, dan linux
-    // app.getAppPath() digunakan untuk mendapatkan path aplikasi electron
     // Load the React app
-    mainWindow.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"));
+    if (isDev()) {
+        mainWindow.loadURL("http://localhost:3000");
+    } else {
+        // path.join() digunakan untuk memastikan path dapat berjalan di windows, mac, dan linux
+        // app.getAppPath() digunakan untuk mendapatkan path aplikasi electron
+        mainWindow.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"));
+    }
 };
 
 app.whenReady().then(() => {
